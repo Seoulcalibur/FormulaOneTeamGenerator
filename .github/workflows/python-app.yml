@@ -41,7 +41,9 @@ jobs:
         
     - name: Commit and Push F1TeamNames.json
       run: |
+        git config --global user.email 'seoulcalibur@pm.me'
+        git config --global user.name 'seoulcalibur'
         git add F1TeamNames.json
-        git commit -m "Add generated F1 team names" || echo "No changes to commit"
+        git commit -m 'Add generated F1 team names' || echo 'No changes to commit'
         git push origin HEAD:${{ github.ref }}
 
