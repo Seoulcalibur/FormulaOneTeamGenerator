@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = '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'
+openai.api_key = os.getenv('OPENAI_API_KEY')
 prompt = "Create a unique and catchy Formula 1 team name combining a well-known automotive brand with a globally recognized non-automotive brand. The team name should end with 'F1 Team'."
 
 def get_completion(prompt, model):
