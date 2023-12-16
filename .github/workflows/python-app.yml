@@ -38,3 +38,10 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         python F1TeamNameGenerator.py
+        
+    - name: Commit and Push F1TeamNames.json
+      run: |
+        git add F1TeamNames.json
+        git commit -m "Add generated F1 team names" || echo "No changes to commit"
+        git push origin HEAD:${{ github.ref }}
+
