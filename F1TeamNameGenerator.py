@@ -2,9 +2,9 @@ import openai
 import os
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
-prompt = "Create a unique and catchy Formula 1 team name combining a well-known automotive brand with a globally recognized non-automotive brand. The team name should end with 'F1 Team'."
 
-def get_completion(prompt, model):
+
+def get_completion(prompt):
     try:
         response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -14,6 +14,7 @@ def get_completion(prompt, model):
     except Exception as e:
         return f"An error occurred: {e}"
 
-response = get_completion(prompt, model)
+prompt = "Create a unique and catchy Formula 1 team name combining a well-known automotive car brand (full name) with a globally recognized non-automotive brand. The team name should end with 'F1 Team'."
+response = get_completion(prompt)
 
 print(response)
